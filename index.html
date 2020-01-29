@@ -1,0 +1,547 @@
+
+ <!DOCTYPE html>
+
+ <html><head>
+ <title>Zhixiang Wang</title>
+ <link href="image/wzx-logo.png" rel="shortcut icon">
+
+ <link href='https://fonts.googleapis.com/css?family=Delius' rel='stylesheet' type='text/css'>
+ <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+ 
+<!-- <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+<!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+ 
+ 
+ <style type="text/css">
+/* ================================ IMPORTS ================================ */
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,500,700");
+
+body
+{
+/*font-family:"Roboto",Helvetica,Arial,sans-serif;font-size:16px;line-height:1.5;font-weight:300;*/
+/*//font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;*/
+/*//font-size: 16px;*/
+/*background-color : #CDCDCD;*/
+background-color: #588FAC;
+font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+color: #737373;
+background-image: url("image/trianglify2.svg");
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+}
+
+nav,
+main {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 1em;
+  margin-bottom: 1em;
+  position: relative;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.5em;
+}
+
+.menu-top-menu-container {
+  width: 100%;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  flex-grow: 1;
+  text-align: center;
+  margin: 0;
+}
+
+nav li::after {
+  content: " ";
+  display: block;
+  width: 1px;
+  height: 2em;
+  background-color: #bbb;
+  float: right;
+}
+
+nav li:last-of-type::after {
+  opacity: 0;
+}
+
+nav a {
+  color: #262626;
+  text-decoration: none;
+  vertical-align: -webkit-baseline-middle;
+  position: relative;
+  top: .2em;
+}
+
+nav a:hover {
+  color: #3b8fcf;
+  text-decoration: underline;
+}
+
+.content
+{
+ width : 900px;
+ /*padding : 25px 30px;*/
+ border-radius: 10px;
+ /*padding: 1em;*/
+ margin : 25px auto;
+ /*background-color : #fff;*/
+ /*box-shadow: 0px 0px 10px #999;*/
+ /*border-radius: 15px; */
+  max-width: 100%;
+  /*margin: auto;*/
+  padding: 2.5%;
+} 
+table
+{
+padding: 5px;
+}
+
+table.pub_table,td.pub_td1,td.pub_td2
+{
+padding: 8px;
+width: 850px;
+ border-collapse: separate;
+ border-spacing: 15px;
+ margin-top: -5px;
+}
+
+td.pub_td1
+{
+width:50px;
+}
+td.pub_td1 img
+{
+ height:120px;
+ width: 160px;
+}
+
+div#container
+{
+  margin-left: auto;
+  margin-right: auto;
+  /*width: 820px;*/
+  text-align: left;
+  position: relative;
+  background-color: #FFF;
+
+  border-radius: 10px;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+div#DocInfo {
+  color: #1367a7;
+  /*height: 158px;*/
+}
+h4,h3,h2,h1 {
+  color: #3B3B3B;
+}
+h1 {
+  font-size:200%;
+}
+h2 {
+  font-size:130%;
+}
+p
+{
+  color: #5B5B5B;
+  margin-bottom: 50px;
+}
+p.caption
+{
+  color: #9B9B9B;
+  text-align: left;
+  width: 600px;
+}
+p.caption2
+{
+color: #9B9B9B;
+text-align: left;
+width: 800px;
+}
+#header_img
+{
+position: absolute;
+top: 0px; right: 0px;
+}
+a:link, a:visited
+{
+color: #1367a7;
+text-decoration: none;
+}
+
+#school_logo {
+position: absolute;
+left: 600px;
+top: 30px;
+/*width: 100px;*/
+/*height: 20px;*/
+}
+
+table.pub_table tr {
+ outline: thin dotted #666666;
+}
+.papericon {
+/*border-radius: 8px; */
+/*-moz-box-shadow: 3px 3px 6px #888;*/
+/*-webkit-box-shadow: 3px 3px 6px #888;*/
+/*box-shadow: 3px 3px 6px #888;*/
+//height:120px;
+width: 160px;
+margin-top:2.5px;
+margin-left:2.5px;
+margin-bottom:2.5px;
+}
+.papericon_tba {
+width: 160px;
+margin-top:25px;
+margin-left:5px;
+margin-bottom:5px;
+-webkit-transform:rotate(-15deg);
+-moz-transform: rotate(-15deg);
+-ms-transform: rotate(-15deg);
+-o-transform: rotate(-15deg);
+transform: rotate(-15deg);
+}
+.schoolicon {
+ /*border-radius: 8px; */
+ /*-moz-box-shadow: 3px 3px 6px #888;*/
+ /*-webkit-box-shadow: 3px 3px 6px #888;*/
+ /*box-shadow: 3px 3px 6px #888;*/
+ height:80px;
+ /*width: 60px;*/
+ /*margin-top:5px;*/
+ /*margin-left:5px;*/
+ /*margin-bottom:5px;*/
+}
+.media {
+outline: thin dotted #bbb;
+margin-bottom: 15px;  
+margin-left:10px;
+}
+.media-body {
+margin-top:5px;
+padding-left:20px;
+}
+
+.papers-selected h5, .papers-selected h4 { display : none; }
+.papers-selected .publication { display : none; }
+.paperhi-only { display : none; }
+.papers-selected .paperhi { display : flex; }
+.papers-selected .paperlo { display : none; }
+.papers-selected .projchi { display : flex; }
+.papers-selected .projclo { display : none; }
+
+.paper-title {
+//font-family: 'Delius', cursive;
+font-weight: bold;
+}
+
+.paper-author {
+font-size: 11pt;
+/*color: #669900 !important;*/
+font-weight: normal !important;
+}
+
+.homeTagStatus {
+/*font-family: 'Delius', cursive;*/
+/*font-weight: bold;*/
+color: black;
+border-radius: 15px;
+background-color: rgb(194, 255, 194); 
+/*background-color: rgb(255, 194, 194);*/
+/*background-color: rgb(199, 194, 194); */
+padding-left: 5px;
+padding-right: 5px;
+}
+
+
+
+.homeTagMe {
+/*font-family: 'Delius', cursive;*/
+/*font-weight: bold;*/
+/*border-radius: 15px;*/
+//background-color: rgb(255, 214, 133);
+background-color: rgb(255, 255, 178); 
+/*padding-left: 5px;*/
+/*padding-right: 5px;*/
+}
+
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 20px; /* Place the button at the bottom of the page */
+  right: 10px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: transparent; /* Set a background color */
+  color: white; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 2px 8px; /* Some padding */
+  border-radius: 6px; /* Rounded corners */
+  font-size: 18px; /* Increase font size */
+}
+
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
+}
+</style>
+ 
+<script>
+ (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+ (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+ })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+ ga('create', 'UA-104390830-1', 'auto');
+ ga('send', 'pageview');
+
+</script>
+ 
+<!--  <script type="text/javascript">
+    var myPix = new Array("image/profile_wzx_new3.jpg","image/profile_wzx_new4.jpg")
+    function choosePic() {
+        var randomNum = Math.floor(Math.random() * myPix.length);
+        document.getElementById("myPicture").src = myPix[randomNum];
+    };
+</script> -->
+
+<!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+ </head>
+ 
+ 
+ <body>
+
+ <div class="content">
+    
+<!--    <nav>
+  <div class="menu-top-menu-container"><ul id="menu-top-menu" class="menu"><li id="menu-item-20" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current_page_item menu-item-home menu-item-20"><a href="https://lightchaserx.github.io/" aria-current="page">Home</a></li>
+  <li id="menu-item-21" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-21"><a href="#bio">Biography</a></li>
+  <li id="menu-item-22" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-22"><a href="#news">News</a></li>
+  <li id="menu-item-835" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-835"><a href="#pub">Publications</a></li>
+  <li id="menu-item-23" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-23"><a href="#awa">Awards</a></li>
+  <li id="menu-item-24" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-24"><a href="#exp">Experiences</a></li>
+  <li id="menu-item-25" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-25"><a href="#act">Activities</a></li>
+  <li id="menu-item-26" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-26"><a href="#TBA">Links</a></li>
+  </ul></div>
+  </nav> -->
+
+  <button onclick="topFunction()" id="myBtn" title="Go to top">Top &uarr;</button>
+
+  <div id="container">
+   <table>
+   <tbody><tr>
+   <td><img id="myPicture" src="image/profile_wzx_new3.jpg" style="float:left; padding-left:20px; padding-right:30px" height="180px" data-rotate="-90"></td>
+   <script>choosePic();</script>
+   <td>
+   <div id="DocInfo">
+     <h1>Zhixiang Wang <span style="font-size:12pt;">[<a href="image/CN_name.png">Chinese</a>][Chih-Hsiang Wang]</span></h1>
+        <span style="font-weight:bold;">M.Phil Student</span>
+         <br>
+         <!-- National Taiwan University<br> -->
+         Supervisor: Prof. <a href="http://www.csie.ntu.edu.tw/~cyy/index.html" target="_blank" rel="nofollow">Yung-Yu Chuang</a><br>
+         <a href="https://www.cmlab.csie.ntu.edu.tw/">Communications and Multimedia Lab.</a>, National Taiwan University<br>
+         Email: <img src="gmail.png" height="20px"><!-- <img src="cmlab_mail.png" height="20px"> -->
+         <!-- &nbsp;&nbsp;Skype: <img src="skype.png" height="19px"> -->
+         </div>
+         <a href="https://scholar.google.co.jp/citations?hl=en&pli=1&user=yybzbxMAAAAJ">Google Scholar</a> / 
+         <a href="https://www.linkedin.com/in/zhixiang-wang-79534699/">Linkedin</a>  / 
+         <a href="skype.png">Skype</a>
+         <br>
+         <span>Status: <span class="homeTagStatus">I am looking for a Ph.D. position!</span></span>
+   <br>
+     
+<!--      <div id="school_logo">
+      <div class="schoolicon">
+         <a href="http://www.ntu.edu.tw/english/index.html"><img src="image/ntulogo.gif" height="60px" /></a> 
+         <a href="http://www.ntu.edu.tw/english/index.html"><img src="image/ntusg.png" height="60px" /></a></div>
+      <div class="schoolicon">
+         <a href="http://www.ntu.edu.tw/english/index.html"><img src="image/nii_logo.png" width=60px/></a>
+       </div>
+     </div>
+      -->
+   </td>
+   </tr>
+   </tbody></table>
+   <br>
+ 
+ <div class="papers-container papers-selected"> 
+ 
+   <h2 id="bio">Biography</h2>
+     <ul>
+         <li>I am a 3<sup>rd</sup>-year M.Phil student studying Computer Science at <a href="http://www.ntu.edu.tw/english/index.html" target="_blank" rel="nofollow">National Taiwan University</a>, supervised by Prof. <a href="http://www.csie.ntu.edu.tw/~cyy/index.html" target="_blank" rel="nofollow">Yung-Yu Chuang</a>. Before this, I received my B.Eng degree in Automation from <a href="http://en.njnu.edu.cn/" target="_blank" rel="nofollow">Nanjing Normal University</a> in 2017. My research interests lie in computer vision, with a focus on visual recognition and computational photography. </li>
+         <!-- <li>I served as a reviewer/PC member for ECCV'20, CVPR'20, ICCV'19, AAAI'20, IJCAI'20, IEEE TMM. -->
+         <!-- <li>I am fortunate to work closely with Prof. <a href="https://www.nii.ac.jp/en/faculty/digital_content/zheng_yinqiang/" target="_blank" rel="nofollow">Yinqiang Zheng</a> (NII), Dr. <a href="https://wangzwhu.github.io/home/" target="_blank" rel="nofollow">Zheng Wang</a> (NII), Prof. <a href="http://research.nii.ac.jp/~satoh/" target="_blank" rel="nofollow">Shin'ichi Satoh</a> (NII/UTokyo), <a href="https://www.linkedin.com/in/lixiong-chen-53232a17" target="_blank" rel="nofollow">Lixiong Chen</a> (Oxford), Prof. <a href="https://faculty.ucmerced.edu/mhyang/" target="_blank" rel="nofollow">Ming-Hsuan Yang</a> (UC Merced), and Prof. <a href="https://www.ntu.edu.sg/home/hanwangzhang/" target="_blank" rel="nofollow"> Hanwang Zhang</a> (NTU-SG).</li> -->
+         <!-- <li>Status: <span class="homeTagStatus">I am looking for a Ph.D. position (2020 Fall)!</span></li> -->
+     </ul>
+   
+     <h2 id="news">News</h2>
+     <ul>
+         <li>[2019/02/25] Two first-author papers accepted to CVPR 2019. See the papers bellow.</li>
+         <li>[2018/01/15] Start my internship at National Institute of Informatics, Japan.</li>
+     </ul>
+ 
+<!--  <script>
+ $(document).ready(function() {
+   $('.paperhi button').click(function() {
+      $('.papers-container').removeClass('papers-selected');
+   });
+   $('.paperlo button').click(function() {
+      $('.papers-container').addClass('papers-selected');
+   });
+ 
+ });
+ </script> -->
+<!--    <h2 class="paperlo">All Publications <button type="button" class="ml-3 btn btn-light">Show less</button></h2>
+   <h2 id="pub" class="paperhi paperhi-only">Publications <button type="button" class="ml-3 btn btn-light">Show all</button></h2> -->
+   <h2 id="pub">Publications</h2>
+   <font size=2>&#65290; -indicates co-first author </font>
+
+   <!-- <h5 class="pt-2 pb-1">2019</h5> -->
+
+<!--    <div class="publication media">
+            <img src="image/h-reid.png" class="papericon">
+            <div class="media-body"><span class="paper-title">Beyond Intra-modality: A Survey of Heterogeneous Person Re-identification</span><br>
+      <span class="paper-author"><span class="paper-author">Zheng Wang<sup>&#65290;</sup>, <span class="homeTagMe">Zhixiang Wang<sup>&#65290;</sup></span>, Yinqiang Zheng, Yang Wu, Shin'ichi Satoh</span><br> <a href="pdf/Wang_HeReIDSurvey.pdf">PDF</a> / <a href="https://arxiv.org/abs/1905.10048">arxiv preprint</a> / <a href="#TBA">bibtex</a></span>
+      </div>
+   </div> -->
+
+   <div class="publication media paperhi">
+            <img src="image/iid.jpg" class="papericon">
+            <div class="media-body"><span class="paper-title">Illumination-Adaptive Person Re-Identification</span><br>
+      <span class="paper-author">Zelong Zeng<sup>&#65290;</sup>, <span class="homeTagMe">Zhixiang Wang<sup>&#65290;</sup></span>, Zheng Wang, Yinqiang Zheng, Yung-Yu Chuang,<br> and Shin'ichi Satoh<br> <I>IEEE Transactions on Multimedia</I> (accept with minor revisions)<br> <a href="pdf/Zeng_IAReID.pdf">PDF</a> / <a href="https://arxiv.org/abs/1905.04525">arxiv preprint</a> / <a href="#TBA">bibtex</a></span>
+      </div>
+   </div>
+ 
+   <div class="publication media paperhi">
+            <img src="image/d2r_cam.jpg" class="papericon">
+            <div class="media-body"><span class="paper-title">Learning to Reduce Dual-level Discrepancy for Infrared-Visible Person Re-identification</span><br>
+      <span class="paper-author"><span class="homeTagMe">Zhixiang Wang</span>, Zheng Wang, Yinqiang Zheng, Yung-Yu Chuang, Shin'ichi Satoh<br><I>CVPR</I>, 2019 (acceptance rate: 25.2%)<br> <a href="pdf/Wang_D2RL_CVPR19.pdf">PDF</a> / <a href="bibtex.html#Wang:2019:LRD">bibtex</a></span>
+      </div>
+   </div>
+ 
+   <div class="publication media paperhi"> 
+            <img src="image/calib.jpg" class="papericon"></td>
+            <div class="media-body"><span class="paper-title">Polarimetric Camera Calibration Using an LCD Monitor</span><br>
+      <span class="paper-author"><span class="homeTagMe">Zhixiang Wang</span>, Yinqiang Zheng, Yung-Yu Chuang<br> <I>CVPR</I>, 2019 (acceptance rate: 25.2%)<br> <a href="pdf/Wang_PolarCalib_CVPR19.pdf">PDF</a> / <a href="bibtex.html#Wang:2019:PCC">bibtex</a> </span>
+      </div> 
+   </div>
+ 
+<!--    <h5 class="pt-2 pb-1">2018 and earlier</h5>
+   <div class="publication media">
+     <img src="image/robio18.png" class="papericon"></td>
+            <div class="media-body"><span class="paper-title">Long-range Hand Gesture Recognition with Joint <I>SSD</I> Network</span><br>
+     <span class="paper-author"> Chengming Yi, Liguang Zhou, <span class="homeTagMe">Zhixiang Wang</span>, Zhenglong Sun, Changgeng Tan<br><i> IEEE International Conference on Robotics and Biomimetics (ROBIO)</i>, 2018<br> <a href="https://ieeexplore.ieee.org/document/8665302">PDF</a> / <a href="bibtex.html#Yi:2019:LHGR">bibtex</a> </span>
+   </div></div>
+ 
+   <div class="publication media"> 
+     <img src="image/CJPH.jpg" class="papericon"></td>
+            <div class="media-body"><span class="paper-title">Array-enhanced Logical Stochastical Resonance Subject to Colored Noise.</span><br>
+     <span class="paper-author"><span class="homeTagMe">Zhixiang Wang</span>, Zijian Qiao, Liguang Zhou, Lei Zhang<br><i> Chinese Journal of Physics (SCI)</i>, 2017<br> <a href="https://www.sciencedirect.com/science/article/abs/pii/S0577907316308449">PDF</a> / <a href="bibtex.html#Wang:2017:ALSR">bibtex</a> </span>
+   </div></div> -->
+
+     <h2 id="awa">Awards &amp; Honors</h2>
+         <ul>
+             <li>Excellent Bachelor Thesis Award, NJNU, 2017</li>
+             <li>Outstanding Student Scholarship <b class="homeTagAwards">(four-year continuous)</b>, NJNU, 2013 &ndash; 2017</li>
+             <li><span class="homeTagAwards">Honorable Mention</span> in Mathematical Contest in Modeling (MCM/ICM), 2016</li>
+             <li><strong class="homeTagAwards">Champion</strong> in Freescale Cup Intelligent Car Race <I>(China East Regional Competition)</I>, 2015</li>
+             <li><span class="homeTagAwards">First Prize</span> in Mathematical Modelling Contest, NJNU, 2016</li>
+             <li><span class="homeTagAwards">First Prize</span> in Intelligent Car Competition, NJNU, 2014</li>
+         </ul>    
+ 
+     <h2 id="exp">Experiences</h2>
+     <ul>
+     <li>Research Intern of <a href="https://www.nii.ac.jp/">National Institute of Informatics (NII)</a>, Tokyo, 2018/2019</li>
+     <li>Visiting Student of <a href="http://www.cuhk.edu.cn/en">The Chinese University of Hong Kong &ndash; Shenzhen</a>, 2016</li>
+     <li>Summer Intern of <a href="http://www.googoltech.com/">Googol Technology Limited</a>, 2015</li> 
+     <li>Summer Student of <a href="http://irc.cs.sdu.edu.cn/2016-summer-school/index.html">Visual Computing Summer School</a> (financial support), Shandong University, 2016</li>
+     <li>Summer Student of <a href="http://www.ece.ust.hk/~atc/education.htm#robot_com">Summer School on Geometric Methods in Robotics</a>, HKUST, 2015</li>
+     <!-- <li>Summer Student of Summer Course on Mathematical Modeling, Nanjing Normal University, 2014</li> -->
+     </ul>
+ 	
+     <h2 id="act">Professional Activities</h2>
+     <ul>
+     <li>Program Committee Member for AAAI 2020, IJCAI 2020</li>
+     <li>Invited Reviewer for ECCV 2020, CVPR 2020, ICCV 2019, IEEE TMM</li>
+     <li>Student Volunteer for CVPR 2019</li>
+     <li>Chair of IEEE Nanjing Normal University Student Branch, 2016 &ndash; 2017</li>
+     <!-- <li>Vice Chair of IEEE Nanjing Normal University Student Branch, 2014 &ndash; 2016</li> -->
+     <!-- <li>Student Member of IEEE, 2014 &ndash; present </li> -->
+     <!-- <li>Member of IEEE Robotics and Automation Society, 2014 &ndash; 2016</li> -->
+     </ul>
+    
+   
+   <!-- <h2>Collaborators</h2>
+     <ul>
+       <li><a href="http://www.csie.ntu.edu.tw/~cyy/index.html" target="_blank" rel="nofollow">Yung-Yu Chuang</a> (NTU TW), <a href="https://www.nii.ac.jp/en/faculty/digital_content/zheng_yinqiang/">Yinqiang Zheng</a> (NII), <a href="http://research.nii.ac.jp/~satoh/">Shin'ichi Satoh</a> (NII/UTokyo), <a href="https://wangzwhu.github.io/home/">Zheng Wang</a> (NII)</li>
+       <li>Zelong Zeng (UTokyo), <a href="https://sites.google.com/view/zhouliguang/home">Liguang Zhou</a> (CUHKSZ)</li>
+     </ul> -->
+ 
+ <!-- <p class="pull-right"><a href="#">Back to top</a></p> -->
+ <footer class="footer" id="contact"><hr/>
+  <table  width="100%">
+  <tbody>
+  <tr>
+  <td>
+    <!-- Template from <a href="http://bzhou.ie.cuhk.edu.hk/">Bolei Zhou</a>,  -->
+  <div style="text-align: left;font-style: italic;"><span style="font-size: small">Last updated: <script language="JavaScript">
+    <!--  hide script from old browsers
+      document.write(document.lastModified, " (", Intl.DateTimeFormat().resolvedOptions().timeZone, ")")
+    // end hiding contents -->
+  </script></span>  
+  </div>
+  </td>
+ <!--  <td align="right">
+  <div style="text-align: right;font-style: italic;" valign="center">
+  <img alt="AmazingCounters.com" width="32px" border="0" src="http://cc.amazingcounters.com/counter.php?i=3215900&amp;c=9648013"> <span style="font-size: small">visits from Feb. 2019.</span>
+  </div>
+  </td> -->
+  <!-- //(GMT+9) -->
+  </tr>
+  </tbody>
+  </table>
+  </footer>
+  
+ <script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+
+ </div>
+ </div>
+ </body></html>
+ 

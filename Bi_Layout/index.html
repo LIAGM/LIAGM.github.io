@@ -170,7 +170,8 @@
   <section class="section">
     <div class="container is-max-desktop has-text-centered">
       <h2 class="title is-3">Our Bi-Layout Estimations</h2>
-      <p><font color="Blue">Blue</font> and <font color="#82FF82">Green</font> represent ground truth labels and our predictions, respectively.</p>
+      <p><strong><font color="Blue">Blue</font></strong> and <strong><font color="#82FF82">Green</font></strong> represent ground truth labels and our predictions, respectively.</p>
+      <br>
       <p><strong>Input Panorama</strong>
         &emsp;&emsp;&emsp;&emsp;
         &emsp;&emsp;&emsp;&emsp;
@@ -206,7 +207,7 @@
               A unique property of our Bi-Layout model is its ability to inherently detect ambiguous regions by comparing the two predictions. 
                 To circumvent the need for manual correction of ambiguous annotations during testing, we also introduce a new metric for disambiguating ground truth layouts. 
                 Our method demonstrates superior performance on benchmark datasets, notably outperforming leading approaches. Specifically, on the MatterportLayout dataset, 
-                it improves 3DIoU from 81.70% to 82.57% across the full test set and notably from 54.80% to 59.97% in subsets with significant ambiguity.
+                it improves 3DIoU from <strong>81.70%</strong> to <strong>82.57%</strong> across the full test set and notably from <strong>54.80%</strong> to <strong>59.97%</strong> in subsets with significant ambiguity.
             </p>
           </div>
         </div>
@@ -252,7 +253,7 @@
           <img src="./static/images/bi_layout_motivation.png" width="100%">
           <h2 class="content has-text-justified">
             <p>
-              <strong>Inherent ambiguity in the MatterportLayout Dataset.</strong> <font color="Blue">Blue</font> and <font color="#82FF82">Green</font> represent ground truth annotations and predictions from the SoTA models, respectively. 
+              <strong>Inherent ambiguity in the MatterportLayout Dataset.</strong> <strong><font color="Blue">Blue</font></strong> and <strong><font color="#82FF82">Green</font></strong> represent ground truth annotations and predictions from the SoTA models, respectively. 
               The layout boundaries are shown on the left, and their bird's-eye view projections are on the right. 
               We define two types of layout annotation: (a) <strong>enclosed type</strong> encloses the room. (b) <strong>extended type</strong> extends to all visible areas. 
               The dashed lines underscore the ambiguity in the dataset labels.
@@ -324,7 +325,7 @@
           <h2 class="content has-text-justified">
             <p>
               <strong>Qualitative comparison on the MatterportLayout (top) and  ZInd datasets (bottom).</strong> 
-              <font color="Blue">Blue</font> and <font color="#82FF82">Green</font> represent ground truth labels and predictions, respectively. 
+              <strong><font color="Blue">Blue</font></strong> and <strong><font color="#82FF82">Green</font></strong> represent ground truth labels and predictions, respectively. 
               The boundaries of the room layout are on the left, and their bird's eye view projections are on the right. 
               We show our <strong>disambiguate</strong> results, which effectively address the ambiguity issue, while the SoTA methods struggle with the ambiguity, as highlighted in dashed lines.
             </p>

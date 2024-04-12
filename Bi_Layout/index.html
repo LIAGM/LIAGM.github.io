@@ -443,12 +443,24 @@
       <!-- results part -->
       <div class="columns is-centered has-text-centered">
         <div class="column is-full">
-          <h2 class="title is-3">Results</h2>
-          <img src="./static/images/daefr_results.png" width="100%">
+          <h2 class="title is-3">Qantitative Comparison</h2>
+          <img src="./static/images/quantitative_evaluation.png" width="100%">
           <h2 class="content has-text-justified">
             <p>
-              We compare SoTA methods on the real-world datasets.
-              Our DAEFR method exhibits robustness in restoring high-quality faces even under heavy degradation.
+              <strong>Full set and Subset evaluation.</strong> 
+              <strong>Equivalent branch</strong> represents the output, which is trained with the same label as baseline methods.
+              <strong>Disambiguate</strong> is our proposed metric.
+            </p>
+          </h2>
+          <h2 class="title is-3">Qualitative Comparison</h2>
+          <img src="./static/images/matterport.png" width="100%">
+          <img src="./static/images/zind.png" width="100%">
+          <h2 class="content has-text-justified">
+            <p>
+              <strong>Qualitative comparison on the MatterportLayout (top) and  ZInd datasets (bottom).</strong> 
+              <font color="Blue">Blue</font> and <font color="#82FF82">Green</font> represent ground truth labels and predictions, respectively. 
+              The boundaries of the room layout are on the left, and their bird's eye view projections are on the right. 
+              We show our <strong>disambiguate</strong> results, which effectively address the ambiguity issue, while the SoTA methods struggle with the ambiguity, as highlighted in dashed lines.
             </p>
           </h2>
         </div>

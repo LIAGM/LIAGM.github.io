@@ -3,19 +3,19 @@
 
 <head>
   <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YNMMXDB9CH"></script>
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-YNMMXDB9CH"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
 
     gtag('config', 'G-YNMMXDB9CH');
-  </script>
+  </script> -->
   <meta charset="utf-8">
-  <meta name="description" content="Dual Associated Encoder for Face Restoration">
-  <meta name="keywords" content="DAEFR, face restoration, VQGAN, codebook">
+  <meta name="description" content="No More Ambiguity in 360° Room Layout via Bi-Layout Estimation">
+  <meta name="keywords" content="Panorama, Room Layout, Layout Estimation, Ambiguity">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Dual Associated Encoder for Face Restoration</title>
+  <title>No More Ambiguity in 360° Room Layout via Bi-Layout Estimation</title>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 
@@ -58,10 +58,10 @@
             More Research
           </a>
           <div class="navbar-dropdown">
-            <!-- <a class="navbar-item" href="https://ttaoretw.github.io/imgeonet/">
-            ImGeoNet
+            <a class="navbar-item" href="https://liagm.github.io/DAEFR/">
+            DAEFR
           </a>
-          <a class="navbar-item" href="https://github.com/amazon-science/read-up">
+          <!-- <a class="navbar-item" href="https://github.com/amazon-science/read-up">
             READ-UP
           </a>
           <a class="navbar-item" href="https://ttaoretw.github.io/SeqRQ-AE/demo.html">
@@ -80,30 +80,40 @@
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <h1 class="title is-2 publication-title">Dual Associated Encoder for Face Restoration</h1>
-            <h2 class="title is-size-3 publication-title">ICLR 2024</h2>
+            <h1 class="title is-2 publication-title">No More Ambiguity in 360° Room Layout via<br> Bi-Layout Estimation</h1>
+            <h2 class="title is-size-3 publication-title">CVPR 2024</h2>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="https://liagm.github.io/" target="_blank">Yu-Ju Tsai</a><sup>1</sup>,
+                <a href="https://liagm.github.io/" target="_blank">Yu-Ju Tsai</a><sup>1,3</sup>,
               </span>
               <span class="author-block">
-                <a href="https://yulunalexliu.github.io/" target="_blank">Yu-Lun Liu</a><sup>2</sup>,
+                <a href="https://aliensunmin.github.io/lab/info.html" target="_blank">Jin-Cheng Jhang</a><sup>2</sup>,
               </span>
               <span class="author-block">
-                <a href="https://luqi.info/" target="_blank">Lu Qi</a><sup>1</sup>,
+                <a href="https://www.linkedin.com/in/jingjing-zheng-1447b427/" target="_blank">Jingjing Zheng</a><sup>3</sup>,
               </span>
               <span class="author-block">
-                <a href="https://ckkelvinchan.github.io/" target="_blank">Kelvin C.K. Chan</a><sup>3</sup>,
+                <a href="https://www.amazon.science/author/wei-wang" target="_blank">Wei Wang</a><sup>3</sup>,
+              </span>
+              <br>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/aycchen/" target="_blank">Albert Y. C. Chen</a><sup>3</sup>,
               </span>
               <span class="author-block">
-                <a href="https://faculty.ucmerced.edu/mhyang/" target="_blank">Ming-Hsuan Yang</a><sup>1,3</sup>
+                <a href="https://aliensunmin.github.io/" target="_blank">Min Sun</a><sup>2,3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.linkedin.com/in/cheng-hao-kuo-65208353/" target="_blank">Cheng-Hao Kuo</a><sup>3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://faculty.ucmerced.edu/mhyang/" target="_blank">Ming-Hsuan Yang</a><sup>1</sup>
               </span>
             </div>
 
             <div class="is-size-5 publication-authors">
               <span class="author-block"><sup>1</sup>UC Merced,</span>
-              <span class="author-block"><sup>2</sup>National Yang Ming Chiao Tung University,</span>
-              <span class="author-block"><sup>3</sup>Google Research</span>
+              <span class="author-block"><sup>2</sup>National Tsing Hua University,</span>
+              <span class="author-block"><sup>3</sup>Amazon</span>
             </div>
 
             <div class="column has-text-centered">
@@ -124,7 +134,7 @@
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
-                    <span>Code</span>
+                    <span>Code(coming soon)</span>
                   </a>
                 </span>
                 <!-- Dataset Link. -->
@@ -320,19 +330,17 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Restoring facial details from low-quality (LQ) images has remained a challenging problem due to its
-              ill-posedness induced by various degradations in the wild. The existing codebook prior mitigates the
-              ill-posedness by leveraging an autoencoder and learned codebook of high-quality (HQ) features, achieving
-              remarkable quality. However, existing approaches in this paradigm frequently depend on a single encoder
-              pre-trained on HQ data for restoring HQ images, disregarding the domain gap between LQ and HQ images. As a
-              result, the encoding of LQ inputs may be insufficient, resulting in suboptimal performance.
+              Inherent ambiguity in layout annotations poses significant challenges to developing accurate 360° room layout estimation models.
+               To address this issue, we propose a novel Bi-Layout model capable of predicting two distinct layout types. 
+               One stops at ambiguous regions, while the other extends to encompass all visible areas. Our model employs two global context embeddings,
+                where each embedding is designed to capture specific contextual information for each layout type. With our novel feature guidance module, 
+                the image feature retrieves relevant context from these embeddings, generating layout-aware features for precise bi-layout predictions. 
             </p>
             <p>
-              To tackle this problem, we propose a novel dual-branch framework named DAEFR. Our method introduces an
-              auxiliary LQ branch that extracts crucial information from the LQ inputs. Additionally, we incorporate
-              association training to promote effective synergy between the two branches, enhancing code prediction and
-              output quality. We evaluate the effectiveness of DAEFR on both synthetic and real-world datasets,
-              demonstrating its superior performance in restoring facial details.
+              A unique property of our Bi-Layout model is its ability to inherently detect ambiguous regions by comparing the two predictions. 
+                To circumvent the need for manual correction of ambiguous annotations during testing, we also introduce a new metric for disambiguating ground truth layouts. 
+                Our method demonstrates superior performance on benchmark datasets, notably outperforming leading approaches. Specifically, on the MatterportLayout dataset, 
+                it improves 3DIoU from 81.70% to 82.57% across the full test set and notably from 54.80% to 59.97% in subsets with significant ambiguity.
             </p>
           </div>
         </div>
@@ -340,14 +348,14 @@
       <!--/ Abstract. -->
 
       <!-- Paper video. -->
-      <!-- <div class="columns is-centered has-text-centered">
+      <div class="columns is-centered has-text-centered">
       <div class="column is-full">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/hAjbRFA1d2I?si=FEf__oIE2LOJLlUR" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe src="https://www.youtube.com/embed/pgR-IgOcNgg?si=BWgnT2LeL7cX_Guh" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
-    </div> -->
+      </div>
       <!--/ Paper video. -->
     </div>
   </section>
@@ -360,20 +368,35 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-full">
           <h2 class="title is-3">Motivation</h2>
-          <img src="./static/images/daefr_teaser.png" width="100%">
           <h2 class="content has-text-justified">
             <p>
-              (a) Existing codebook prior approaches learn an encoder in the first stage. During the restoration stage,
-              these approaches utilize LQ images to
-              fine-tune the encoder using pre-trained weights obtained from HQ images. However, this approach
-              introduces a domain bias due to a domain gap between the encoder and LQ input images.
+              Prior works generate the single layout prediction from the panorama image. 
+              Given the single panorama as the input, the state-of-the-art method only generates a single prediction, 
+              which faces wrong prediction parts inside the white box. This challenge comes from the inherent ambiguity region in the dataset label, 
+              which is caused by inconsistent annotation strategy and is hard to solve by a single prediction method. 
             </p>
             <p>
-              (b) We propose the integration of an auxiliary branch specifically designed for encoding LQ information.
-              This auxiliary branch is trained exclusively using LQ data to address domain bias and obtain precise
-              feature representation.
-              Furthermore, we introduce an association stage and feature fusion module to enhance the integration
-              of information from both encoders and assist our restoration pipeline.
+              The white box indicates the ambiguous regions and the prediction from the state-of-the-art methods are struggled in these regions. 
+              We further define the two types of ground truth annotations, enclosed and extended.  
+              The enclosed annotation encloses the nearest room.  
+              The extended annotation extends to all visible areas. 
+              With two label definitions, our model has a clear target to learn and predict.
+            </p>
+          </h2>
+          <img src="./static/images/bi_layout_motivation.png" width="100%">
+          <h2 class="content has-text-justified">
+            <p>
+              <strong>Inherent ambiguity in the MatterportLayout Dataset.</strong> <font color="Blue">Blue</font> and <font color="#82FF82">Green</font> represent ground truth annotations and predictions from the SoTA models, respectively. 
+              The layout boundaries are shown on the left, and their bird's-eye view projections are on the right. 
+              We define two types of layout annotation: (a) <strong>enclosed type</strong> encloses the room. (b) <strong>extended type</strong> extends to all visible areas. 
+              The dashed lines underscore the ambiguity in the dataset labels.
+            </p>
+          </h2>
+          <img src="./static/images/bi_layout_result_for _motivation.png" width="100%">
+          <h2 class="content has-text-justified">
+            <p>
+              We propose our <strong>Bi-Layout model</strong>, which can generate <strong>two distinct</strong> layouts from a single panorama. 
+              Within these two layout predictions, we can find a prediction that best fits the dataset label to obtain better performance and solve the ambiguity issue inherent in the dataset label.
             </p>
           </h2>
         </div>
@@ -388,24 +411,24 @@
       <div class="columns is-centered has-text-centered">
         <div class="column is-full">
           <h2 class="title is-3">Method</h2>
-          <img src="./static/images/DAEFR_arch.png" width="100%">
+          <img src="./static/images/bi_layout_network.png" width="100%">
           <h2 class="content has-text-justified">
             <p>
-              (a) Initially, we train the autoencoder and discrete
-              codebook for both HQ and LQ image domains through self-reconstruction.
+            We proposed three main parts to construct our bi-layout model.
             </p>
             <p>
-              (b) Once we obtain both encoders, we divide the feature into patches and construct a similarity matrix
-              Massoc that associates HQ and LQ features while incorporating spatial
-              information. To promote maximum similarity between patch features, we employ a cross-entropy loss function
-              to maximize the diagonal of the matrix.
+              <strong>(a)</strong> The first part is the <strong>Feature Extractor</strong> to encode the panorama. 
+              We use ResNet to generate different levels of features and use our simplified height compression module 
+              to compress and concatenate these features into an efficient 1-dimensional feature representation.
             </p>
             <p>
-              (c) After obtaining the associated encoders, we use a multi-head cross-attention module (MHCA) to merge
-              the features from the associated encoders, generating fused features. We then input the fused feature to
-              the transformer, which predicts the corresponding code index s for the HQ codebook.
-              Finally, we use the predicted code index to retrieve the features and feed them to the HQ decoder to
-              restore the image.
+              <strong>(b)</strong> The second part is our <strong>Global Context Embeddings</strong>, which learn the global contextual information from the dataset labels. 
+              These embeddings learn the contextual information during training time.
+            </p>
+            <p>
+              <strong>(c)</strong> The third part is our <strong>Shared Feature Guidance Module</strong>, 
+              which guides the shared panorama feature with corresponding global context embedding and generates the final feature for different predictions. 
+              This is the most important part of our model design to generate the two distinct layout predictions.
             </p>
           </h2>
         </div>

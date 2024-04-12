@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YNMMXDB9CH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-YNMMXDB9CH');
+  </script>
+  <meta charset="utf-8">
+  <meta name="description" content="Dual Associated Encoder for Face Restoration">
+  <meta name="keywords" content="DAEFR, face restoration, VQGAN, codebook">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dual Associated Encoder for Face Restoration</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://liagm.github.io/" target="_blank">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <!-- <a class="navbar-item" href="https://ttaoretw.github.io/imgeonet/">
+            ImGeoNet
+          </a>
+          <a class="navbar-item" href="https://github.com/amazon-science/read-up">
+            READ-UP
+          </a>
+          <a class="navbar-item" href="https://ttaoretw.github.io/SeqRQ-AE/demo.html">
+            Towards Unsupervised ASR and TTS
+          </a>
+          <a class="navbar-item" href="https://henryhenrychen.github.io/CL-transfer-demo/">
+            Cross-lingual Transfer Linearing for TTS
+          </a> -->
+          </div>
+        </div>
+      </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title">Dual Associated Encoder for Face Restoration</h1>
+            <h2 class="title is-size-3 publication-title">ICLR 2024</h2>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://liagm.github.io/" target="_blank">Yu-Ju Tsai</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://yulunalexliu.github.io/" target="_blank">Yu-Lun Liu</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://luqi.info/" target="_blank">Lu Qi</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://ckkelvinchan.github.io/" target="_blank">Kelvin C.K. Chan</a><sup>3</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://faculty.ucmerced.edu/mhyang/" target="_blank">Ming-Hsuan Yang</a><sup>1,3</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>UC Merced,</span>
+              <span class="author-block"><sup>2</sup>National Yang Ming Chiao Tung University,</span>
+              <span class="author-block"><sup>3</sup>Google Research</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="https://arxiv.org/abs/2308.07314" class="external-link button is-normal is-rounded is-dark"
+                    target="_blank">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <span class="link-block">
+                  <a href="https://github.com/LIAGM/DAEFR" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="https://huggingface.co/datasets/LIAGM/DAEFR_results/tree/main"
+                    class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="far fa-images"></i>
+                    </span>
+                    <span>More Results</span>
+                  </a>
+                </span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Real world results with slider -->
+  <section class="section">
+    <div class="container is-max-desktop has-text-centered">
+      <h2 class="title is-3">Real-World Results</h2>
+
+      <!-- Row 1. -->
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <div class="columns is-centered">
+              <div class="column is-full-width">
+                <div id="bear-inst0-color" class="bal-container-small">
+
+                  <div class="bal-after">
+                    <img src="static/images/for_slider/0000_00.png">
+                    <!-- <video poster="" id="" autoplay muted loop playsinline width="100%">
+                      <source src="./static/videos/rendering/bear-inst0-dreamo-rgb.mp4" type="video/mp4">
+                    </video> -->
+                    <div class="bal-afterPosition afterLabel">
+                      Ours
+                    </div>
+                  </div>
+
+                  <div class="bal-before">
+                    <div class="bal-before-inset">
+                      <img src="static/images/for_slider/0000.png">
+                      <!-- <video poster="" id="" autoplay muted loop playsinline width="100%">
+                        <source src="./static/videos/rendering/bear-inst0-banmo-rgb.mp4" type="video/mp4">
+                      </video> -->
+                      <div class="bal-beforePosition beforeLabel">
+                        Input
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bal-handle">
+                    <span class="handle-left-arrow"></span>
+                    <span class="handle-right-arrow"></span>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <div id="bear-inst0-depth" class="bal-container-small">
+
+                <div class="bal-after">
+                  <!-- <video poster="" id="" autoplay muted loop playsinline width="100%">
+                    <source src="./static/videos/rendering/bear-inst0-dreamo-depth.mp4" type="video/mp4">
+                  </video> -->
+                  <img src="static/images/for_slider/0008_00.png">
+                  <div class="bal-afterPosition afterLabel">
+                    Ours
+                  </div>
+                </div>
+
+                <div class="bal-before">
+                  <div class="bal-before-inset">
+                    <!-- <video poster="" id="" autoplay muted loop playsinline width="100%">
+                      <source src="./static/videos/rendering/bear-inst0-banmo-depth.mp4" type="video/mp4">
+                    </video> -->
+                    <img src="static/images/for_slider/0008.png">
+                    <div class="bal-beforePosition beforeLabel">
+                      Input
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bal-handle">
+                  <span class="handle-left-arrow"></span>
+                  <span class="handle-right-arrow"></span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bird inst1. -->
+        <div class="column">
+          <div class="content">
+            <div class="columns is-centered">
+              <div class="column is-full-width">
+                <div id="bird-inst1-color" class="bal-container-small">
+
+                  <div class="bal-after">
+                    <!-- <video poster="" id="" autoplay muted loop playsinline width="100%">
+                      <source src="./static/videos/rendering/bird-inst1-dreamo-rgb.mp4" type="video/mp4">
+                    </video> -->
+                    <img src="static/images/for_slider/0051_00.png">
+                    <div class="bal-afterPosition afterLabel">
+                      Ours
+                    </div>
+                  </div>
+
+                  <div class="bal-before">
+                    <div class="bal-before-inset">
+                      <!-- <video poster="" id="" autoplay muted loop playsinline width="100%">
+                        <source src="./static/videos/rendering/bird-inst1-banmo-rgb.mp4" type="video/mp4">
+                      </video> -->
+                      <img src="static/images/for_slider/0051.png">
+                      <div class="bal-beforePosition beforeLabel">
+                        Input
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="bal-handle">
+                    <span class="handle-left-arrow"></span>
+                    <span class="handle-right-arrow"></span>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="column">
+          <div class="columns is-centered">
+            <div class="column content">
+              <div id="bird-inst1-depth" class="bal-container-small">
+
+                <div class="bal-after">
+                  <!-- <video poster="" id="" autoplay muted loop playsinline width="100%">
+                    <source src="./static/videos/rendering/bird-inst1-dreamo-depth.mp4" type="video/mp4">
+                  </video> -->
+                  <img src="static/images/for_slider/0083_00.png">
+                  <div class="bal-afterPosition afterLabel">
+                    Ours
+                  </div>
+                </div>
+
+                <div class="bal-before">
+                  <div class="bal-before-inset">
+                    <!-- <video poster="" id="" autoplay muted loop playsinline width="100%">
+                      <source src="./static/videos/rendering/bird-inst1-banmo-depth.mp4" type="video/mp4">
+                    </video> -->
+                    <img src="static/images/for_slider/0083.png">
+                    <div class="bal-beforePosition beforeLabel">
+                      Input
+                    </div>
+                  </div>
+                </div>
+
+                <div class="bal-handle">
+                  <span class="handle-left-arrow"></span>
+                  <span class="handle-right-arrow"></span>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Abstract part -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Restoring facial details from low-quality (LQ) images has remained a challenging problem due to its
+              ill-posedness induced by various degradations in the wild. The existing codebook prior mitigates the
+              ill-posedness by leveraging an autoencoder and learned codebook of high-quality (HQ) features, achieving
+              remarkable quality. However, existing approaches in this paradigm frequently depend on a single encoder
+              pre-trained on HQ data for restoring HQ images, disregarding the domain gap between LQ and HQ images. As a
+              result, the encoding of LQ inputs may be insufficient, resulting in suboptimal performance.
+            </p>
+            <p>
+              To tackle this problem, we propose a novel dual-branch framework named DAEFR. Our method introduces an
+              auxiliary LQ branch that extracts crucial information from the LQ inputs. Additionally, we incorporate
+              association training to promote effective synergy between the two branches, enhancing code prediction and
+              output quality. We evaluate the effectiveness of DAEFR on both synthetic and real-world datasets,
+              demonstrating its superior performance in restoring facial details.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/hAjbRFA1d2I?si=FEf__oIE2LOJLlUR" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+
+  <!-- Teaser part -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <!-- Teaser -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="title is-3">Motivation</h2>
+          <img src="./static/images/daefr_teaser.png" width="100%">
+          <h2 class="content has-text-justified">
+            <p>
+              (a) Existing codebook prior approaches learn an encoder in the first stage. During the restoration stage,
+              these approaches utilize LQ images to
+              fine-tune the encoder using pre-trained weights obtained from HQ images. However, this approach
+              introduces a domain bias due to a domain gap between the encoder and LQ input images.
+            </p>
+            <p>
+              (b) We propose the integration of an auxiliary branch specifically designed for encoding LQ information.
+              This auxiliary branch is trained exclusively using LQ data to address domain bias and obtain precise
+              feature representation.
+              Furthermore, we introduce an association stage and feature fusion module to enhance the integration
+              of information from both encoders and assist our restoration pipeline.
+            </p>
+          </h2>
+        </div>
+      </div>
+      <!-- Teaser -->
+  </section>
+
+  <!-- Network Architecture part -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Network Architecture part -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="title is-3">Method</h2>
+          <img src="./static/images/DAEFR_arch.png" width="100%">
+          <h2 class="content has-text-justified">
+            <p>
+              (a) Initially, we train the autoencoder and discrete
+              codebook for both HQ and LQ image domains through self-reconstruction.
+            </p>
+            <p>
+              (b) Once we obtain both encoders, we divide the feature into patches and construct a similarity matrix
+              Massoc that associates HQ and LQ features while incorporating spatial
+              information. To promote maximum similarity between patch features, we employ a cross-entropy loss function
+              to maximize the diagonal of the matrix.
+            </p>
+            <p>
+              (c) After obtaining the associated encoders, we use a multi-head cross-attention module (MHCA) to merge
+              the features from the associated encoders, generating fused features. We then input the fused feature to
+              the transformer, which predicts the corresponding code index s for the HQ codebook.
+              Finally, we use the predicted code index to retrieve the features and feed them to the HQ decoder to
+              restore the image.
+            </p>
+          </h2>
+        </div>
+      </div>
+      <!-- Network Architecture part -->
+  </section>
+
+
+  <!-- results part -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- results part -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="title is-3">Results</h2>
+          <img src="./static/images/daefr_results.png" width="100%">
+          <h2 class="content has-text-justified">
+            <p>
+              We compare SoTA methods on the real-world datasets.
+              Our DAEFR method exhibits robustness in restoring high-quality faces even under heavy degradation.
+            </p>
+          </h2>
+        </div>
+      </div>
+      <!-- results part -->
+  </section>
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{tsai2024dual,
+        title={Dual Associated Encoder for Face Restoration},
+        author={Tsai, Yu-Ju and Liu, Yu-Lun and Qi, Lu and Chan, Kelvin CK and Yang, Ming-Hsuan},
+        booktitle={The Twelfth International Conference on Learning Representations},
+        year={2024}
+      }</code></pre>
+    </div>
+  </section>
+
+
+  <!-- <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">References</h2>
+
+          <div class="content has-text-justified">
+            <p>
+              [BANMo] Gengshan Yang, et al. “Building animatable 3d neural models from many casual videos.” CVPR. 2022.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section> -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="https://liagm.github.io/" class="external-link" disabled target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This webpage template is adapted from <a href="https://github.com/nerfies/nerfies.github.io"
+                target="_blank">Nerfies</a>,
+              under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA
+                4.0 License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="static/js/script.js"></script>
+
+  <script>
+    new BeforeAfter({
+      id: '#bear-inst0-color'
+    });
+    new BeforeAfter({
+      id: '#bear-inst0-depth'
+    });
+    new BeforeAfter({
+      id: '#bird-inst1-color'
+    });
+    new BeforeAfter({
+      id: '#bird-inst1-depth'
+    });
+    // new BeforeAfter({
+    //   id: '#cat-pikachu-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#cat-pikachu-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#cow-inst0-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#cow-inst0-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#dog-inst0-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#dog-inst0-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#elephant-inst0-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#elephant-inst0-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#parrot-yum-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#parrot-yum-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#polarbear-inst0-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#polarbear-inst0-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#rabbit-ninja-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#rabbit-ninja-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#turtle-inst0-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#turtle-inst0-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#bear-inst0-00206'
+    // });
+    // new BeforeAfter({
+    //   id: '#parrot-yum-00000'
+    // });
+    // new BeforeAfter({
+    //   id: '#elephant-inst0-00033'
+    // });
+    // new BeforeAfter({
+    //   id: '#rabbit-ninja-00121'
+    // });
+    // new BeforeAfter({
+    //   id: '#cockatiel-inst0-00039'
+    // });
+    // new BeforeAfter({
+    //   id: '#cat-pikachu-00000'
+    // });
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-RM9GZCZLJG"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-RM9GZCZLJG');
+  </script>
+  <meta charset="utf-8">
+  <meta name="description" content="CompleteMe: Reference-based Human Image Completion">
+  <meta name="keywords" content="Panorama, Room Layout, Layout Estimation, Ambiguity">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CompleteMe: Reference-based Human Image Completion</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://liagm.github.io/" target="_blank">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://liagm.github.io/DAEFR/">
+            DAEFR
+          </a>
+          <a class="navbar-item" href="https://liagm.github.io/Bi_Layout/">
+            Bi Layout
+          </a>
+          <!-- <a class="navbar-item" href="https://ttaoretw.github.io/SeqRQ-AE/demo.html">
+            Towards Unsupervised ASR and TTS
+          </a>
+          <a class="navbar-item" href="https://henryhenrychen.github.io/CL-transfer-demo/">
+            Cross-lingual Transfer Linearing for TTS
+          </a> -->
+          </div>
+        </div>
+      </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title"><i>CompleteMe</i>: Reference-based Human Image Completion</h1>
+            <h2 class="title is-size-3 publication-title"></h2>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://liagm.github.io/" target="_blank">Yu-Ju Tsai</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://research.adobe.com/person/brian-price/" target="_blank">Brian Price</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://qliu24.github.io/" target="_blank">Qing Liu</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://research.adobe.com/person/luis-figueroa/" target="_blank">Luis Figueroa</a><sup>2</sup>,
+              </span>
+              <br>
+              <span class="author-block">
+                <a href="https://research.adobe.com/person/daniil-pakhomov/" target="_blank">Daniil Pakhomov</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://research.adobe.com/person/zhihong-ding/" target="_blank">Zhihong Ding</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://research.adobe.com/person/scott-cohen/" target="_blank">Scott Cohen</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://faculty.ucmerced.edu/mhyang/" target="_blank">Ming-Hsuan Yang</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>UC Merced,</span>
+              <span class="author-block"><sup>2</sup>Adobe Research</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="pdf/main.pdf" class="external-link button is-normal is-rounded is-dark"
+                    target="_blank">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!-- arXiv Link. -->
+                <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark"
+                    target="_blank">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span>
+                <!-- Code Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://github.com/LIAGM/Bi_Layout" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span> -->
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="pdf/supp.pdf"
+                    class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="far fa-images"></i>
+                    </span>
+                    <span>Supplementary</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Real world results with slider -->
+  <section class="section">
+    <div class="container is-max-desktop has-text-centered">
+      <h2 class="title is-3">Motivation</h2>
+      <img src="./static/images/completeme_teaser.png" width="100%">
+      <h2 class="content has-text-justified">
+        <p>
+          Given occluded human image, non-reference methods, <strong>LOHC</strong> and <strong>BrushNet</strong>, can generate plausible results but lack the unique information of the person like special clothing
+           and tattoo pattern (highlighted in <strong><font color="Red">Red box</font></strong>). Such information can be only acquired by additional reference images. Given the reference image, 
+           <strong>MimicBrush</strong> fails to find the corresponding parts between input and reference. Our <strong><i>CompleteMe</i></strong> can preserve identical and fine-detail information from the reference image and generate a consistent result.
+        </p>
+      </h2>
+    </div>
+  </section>
+
+  <!-- Abstract part -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Recent methods for human image completion can reconstruct plausible body shapes but often fail to preserve unique details, 
+              such as specific clothing patterns or distinctive accessories, without explicit reference images. Even state-of-the-art reference-based 
+              inpainting approaches struggle to accurately capture and integrate fine-grained details from reference images. To address this limitation, 
+              we propose <strong><i>CompleteMe</i></strong>, a novel reference-based human image completion framework. <strong><i>CompleteMe</i></strong> employs a dual U-Net architecture combined with a 
+              Region-focused Attention (RFA) Block, which explicitly guides the model's attention toward relevant regions in reference images. 
+              This approach effectively captures fine details and ensures accurate semantic correspondence, significantly improving the fidelity and consistency of completed images. 
+              Additionally, we introduce a challenging benchmark specifically designed for evaluating reference-based human image completion tasks. 
+              Extensive experiments demonstrate that our proposed method achieves superior visual quality and semantic consistency compared to existing techniques.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/pgR-IgOcNgg?si=BWgnT2LeL7cX_Guh" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      </div> -->
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+
+  <!-- Network Architecture part -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Network Architecture part -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="title is-3">Method</h2>
+          <img src="./static/images/completeme_network.png" width="100%">
+          <h2 class="content has-text-justified">
+            <br>
+            <p>
+              Our proposed <strong><i>CompleteMe</i></strong> utilizes a dual U-Net framework composed of a Reference U-Net and a Complete U-Net. 
+            </p>
+            <p>
+              Given an input image with masked regions, we first encode the input image to latent feature.
+              The Reference U-Net then extracts detailed visual features from multiple reference images, which consist of different human body parts. 
+              Along with global semantic features extracted by CLIP, the reference features are processed within our novel Region-focused Attention (RFA) Block embedded in the Complete U-Net.
+              These reference features are then explicitly masked according to reference masks, producing masked reference features. 
+              This explicit masking and concatenation strategy enables the model to precisely zoom in and focus on relevant human regions, establishing accurate and fine-grained correspondences through the Region-focused Attention mechanism. Finally, decoupled cross-attention integrates these refined local features with the global semantic CLIP features, resulting in a detailed and semantically coherent completion.
+            </p>
+          </h2>
+        </div>
+      </div>
+      <!-- Network Architecture part -->
+  </section>
+
+
+  <!-- results part -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- results part -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="title is-3">Visual Comparison</h2>
+          <img src="./static/images/visual_comparison_no_ref.png" width="100%">
+          <h2 class="content has-text-justified">
+            <br>
+            <p>
+              <strong>Visual Comparison with Non-reference Methods.</strong> 
+              We compare <strong><i>CompleteMe</i></strong> with non-reference methods, LOHC and BrushNet. 
+              Given masked inputs, these non-reference methods generate plausible content for the masked regions using image priors or text prompts. 
+              However, as indicated in the <strong><font color="Red">Red box</font></strong>, they cannot reproduce specific details such as tattoos or unique clothing patterns, 
+              as they lack reference images to guide the reconstruction of identical information.
+            </p>
+          </h2>
+          <img src="./static/images/visual_comparison_1.png" width="100%">
+          <h2 class="content has-text-justified">
+            <br>
+            <p>
+              <strong>Visual Comparison with Reference-based Methods.</strong>
+              Our <strong><i>CompleteMe</i></strong> can generate more realistic and preserve identical information from the reference image. 
+              Please refer to the <strong><font color="Red">Red box</font></strong> region for a more detailed comparison.
+              For more results, please refer to the supplementary material. 
+            </p>
+          </h2>
+        </div>
+      </div>
+      <!-- results part -->
+  </section>
+
+
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{tsai2025completeme,
+        title={CompleteMe: Reference-based Human Image Completion},
+        author={Tsai, Yu-Ju and Price, Brian and Liu, Qing and Figueroa, Luis and Pakhomov, Daniil and Ding, Zhihong and Cohen, Scott and Yang, Ming-Hsuan},
+        journal={arXiv},
+        year={2025}
+      }</code></pre>
+    </div>
+  </section>
+
+
+  <!-- <section class="section">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-full-width">
+          <h2 class="title is-3">References</h2>
+
+          <div class="content has-text-justified">
+            <p>
+              [BANMo] Gengshan Yang, et al. “Building animatable 3d neural models from many casual videos.” CVPR. 2022.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section> -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="https://liagm.github.io/" class="external-link" disabled target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This webpage template is adapted from <a href="https://github.com/nerfies/nerfies.github.io"
+                target="_blank">Nerfies</a>,
+              under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA
+                4.0 License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="static/js/script.js"></script>
+
+  <script>
+    new BeforeAfter({
+      id: '#bear-inst0-color'
+    });
+    new BeforeAfter({
+      id: '#bear-inst0-depth'
+    });
+    new BeforeAfter({
+      id: '#bird-inst1-color'
+    });
+    new BeforeAfter({
+      id: '#bird-inst1-depth'
+    });
+    // new BeforeAfter({
+    //   id: '#cat-pikachu-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#cat-pikachu-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#cow-inst0-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#cow-inst0-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#dog-inst0-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#dog-inst0-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#elephant-inst0-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#elephant-inst0-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#parrot-yum-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#parrot-yum-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#polarbear-inst0-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#polarbear-inst0-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#rabbit-ninja-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#rabbit-ninja-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#turtle-inst0-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#turtle-inst0-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#bear-inst0-00206'
+    // });
+    // new BeforeAfter({
+    //   id: '#parrot-yum-00000'
+    // });
+    // new BeforeAfter({
+    //   id: '#elephant-inst0-00033'
+    // });
+    // new BeforeAfter({
+    //   id: '#rabbit-ninja-00121'
+    // });
+    // new BeforeAfter({
+    //   id: '#cockatiel-inst0-00039'
+    // });
+    // new BeforeAfter({
+    //   id: '#cat-pikachu-00000'
+    // });
+
+  </script>
+
+</body>
+
+</html>

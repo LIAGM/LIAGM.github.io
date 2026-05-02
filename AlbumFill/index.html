@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Google tag (gtag.js) -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-03CQSC92LS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-03CQSC92LS');
+</script> -->
+  <meta charset="utf-8">
+  <meta name="description" content="AlbumFill: Album-Guided Reasoning and Retrieval for Personalized Image Completion">
+  <meta name="keywords" content="Panorama, Room Layout, Layout Estimation, Ambiguity">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AlbumFill: Album-Guided Reasoning and Retrieval for Personalized Image Completion</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+
+<body>
+
+
+  <nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="https://liagm.github.io/" target="_blank">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+        </a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link">
+            More Research
+          </a>
+          <div class="navbar-dropdown">
+            <a class="navbar-item" href="https://liagm.github.io/DAEFR/">
+            DAEFR
+          </a>
+          <a class="navbar-item" href="https://liagm.github.io/Bi_Layout/">
+            Bi Layout
+          </a>
+          <a class="navbar-item" href="https://liagm.github.io/CompleteMe/">
+            CompleteMe
+          </a>
+          <!-- <a class="navbar-item" href="https://henryhenrychen.github.io/CL-transfer-demo/">
+            Cross-lingual Transfer Linearing for TTS
+          </a> -->
+          </div>
+        </div>
+      </div>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-2 publication-title"><i>AlbumFill</i>: Album-Guided Reasoning and Retrieval for Personalized Image Completion</h1>
+            <h2 class="title is-size-3 publication-title"></h2>
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">
+                <a href="https://liagm.github.io/" target="_blank">Yu-Ju Tsai</a><sup>1</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://research.adobe.com/person/brian-price/" target="_blank">Brian Price</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://qliu24.github.io/" target="_blank">Qing Liu</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://research.adobe.com/person/luis-figueroa/" target="_blank">Luis Figueroa</a><sup>2</sup>,
+              </span>
+              <br>
+              <span class="author-block">
+                <a href="https://research.adobe.com/person/daniil-pakhomov/" target="_blank">Daniil Pakhomov</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://research.adobe.com/person/zhihong-ding/" target="_blank">Zhihong Ding</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://research.adobe.com/person/scott-cohen/" target="_blank">Scott Cohen</a><sup>2</sup>,
+              </span>
+              <span class="author-block">
+                <a href="https://faculty.ucmerced.edu/mhyang/" target="_blank">Ming-Hsuan Yang</a><sup>1</sup>
+              </span>
+            </div>
+
+            <div class="is-size-5 publication-authors">
+              <span class="author-block"><sup>1</sup>UC Merced,</span>
+              <span class="author-block"><sup>2</sup>Adobe Research</span>
+            </div>
+
+            <div class="column has-text-centered">
+              <div class="publication-links">
+                <!-- PDF Link. -->
+                <span class="link-block">
+                  <a href="pdf/AlbumFill_main.pdf" class="external-link button is-normal is-rounded is-dark"
+                    target="_blank">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <!-- arXiv Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://arxiv.org/abs/2504.20042" class="external-link button is-normal is-rounded is-dark"
+                    target="_blank">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>arXiv</span>
+                  </a>
+                </span> -->
+                <!-- Code Link. -->
+                <!-- <span class="link-block">
+                  <a href="https://github.com/LIAGM/CompleteMe" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Github</span>
+                  </a>
+                </span> -->
+                <!-- Dataset Link. -->
+                <span class="link-block">
+                  <a href="pdf/AlbumFill_supp.pdf"
+                    class="external-link button is-normal is-rounded is-dark" target="_blank">
+                    <span class="icon">
+                      <i class="far fa-images"></i>
+                    </span>
+                    <span>Supplementary</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Real world results with slider -->
+  <section class="section">
+    <div class="container is-max-desktop has-text-centered">
+      <h2 class="title is-3">Motivation</h2>
+      <img src="./static/images/albumfill_teaser.png" width="100%">
+      <h2 class="content has-text-justified">
+        <p>
+          <strong>Comparison between previous reference-based image completion and our framework.</strong>
+          <br>
+          (a) Previous methods assume that a suitable reference image is provided by the user, limiting their applicability when references are unavailable.
+          <br>
+          (b) Our framework automatically retrieves identity-consistent references from a personal photo album.
+          <br>
+          Given a masked input image, a reasoning module first infers the missing semantic cues, which are used to perform composed image retrieval from the album.
+          <br>
+          The retrieved reference image is then used by a completion model to synthesize the missing region.
+        </p>
+      </h2>
+    </div>
+  </section>
+
+  <!-- Abstract part -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Personalized image completion aims to restore occluded regions in personal photos while preserving identity and appearance. 
+Existing methods either rely on generic inpainting models that often fail to maintain identity consistency, or assume that suitable reference images are explicitly provided. 
+In practice, suitable references are often not explicitly provided, requiring the system to search for identity-consistent images within personal photo collections.
+We present <strong><i>AlbumFill</i></strong>, a training-free framework that retrieves identity-consistent references from personal albums for personalized completion. 
+Given an occluded image and a personal album, a vision-language model infers missing semantic cues to guide composed image retrieval, and the retrieved references are used by reference-based completion models.
+To facilitate this task, we introduce a dataset containing 54K human-centric samples with associated album images. 
+Experiments across multiple baselines demonstrate the difficulty of personalized completion and highlight the importance of identity-consistent reference retrieval.
+            </p>
+          </div>
+        </div>
+      </div>
+      <!--/ Abstract. -->
+
+      <!-- Paper video. -->
+      <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/XSB_i10EbSs?si=kwGErjxs_oyqeMmo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      </div> -->
+      <!--/ Paper video. -->
+    </div>
+  </section>
+
+
+  <!-- Network Architecture part -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- Network Architecture part -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="title is-3">Method</h2>
+          <img src="./static/images/albumfill_system.png" width="100%">
+          <h2 class="content has-text-justified">
+            <br>
+            <strong>AlbumFill system overview.</strong>
+            <p>
+(a) Given a masked target image, a Vision-Language Model (VLM) performs <i>masked visual reasoning</i> to generate a textual hypothesis describing the likely content behind the masked region. 
+<br>
+(b) The reasoning text and visible context are used to compose a multimodal query that retrieves the most semantically aligned and identity-consistent reference image from the user’s personal album. 
+<br>
+(c) A reference-based image completion model synthesizes the final output by integrating the masked target and the retrieved reference, producing an identity-faithful and contextually coherent restoration.
+            </p>
+          </h2>
+        </div>
+      </div>
+      <!-- Network Architecture part -->
+  </section>
+
+
+  <!-- results part -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <!-- results part -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-full">
+          <h2 class="title is-3">Visual Comparison</h2>
+          <img src="./static/images/albumfill_visual.png" width="100%">
+          <h2 class="content has-text-justified">
+            <br>
+            <p>
+              <strong>Visual comparison with different categories of completion methods on our Album Benchmark.</strong>
+We compare our method with three types of baselines: prompt-based inpainting (BrushNet with and without prompts), MLLM-based image editing models (BAGEL and Gemini 3 Pro), and reference-based completion methods (MimicBrush and CompleteMe).
+Prompt-based methods often produce plausible textures but fail to preserve identity.
+MLLM-based approaches struggle with identity consistency or structural continuity under large occlusions.
+Reference-based methods rely heavily on the quality of the provided reference image.
+In contrast, our method retrieves identity-consistent references from personal albums and produces more coherent completions.
+            </p>
+          </h2>
+          <!-- <img src="./static/images/visual_comparison_1.png" width="100%">
+          <h2 class="content has-text-justified">
+            <br>
+            <p>
+              <strong>Visual Comparison with Reference-based Methods.</strong>
+              Our <strong><i>CompleteMe</i></strong> can generate more realistic and preserve identical information from the reference image. 
+              Please refer to the <strong><font color="Red">Red box</font></strong> region for a more detailed comparison.
+              For more results, please refer to the supplementary material. 
+            </p>
+          </h2> -->
+        </div>
+      </div>
+      <!-- results part -->
+  </section>
+
+
+  <!-- <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{tsai2025completeme,
+        title={CompleteMe: Reference-based Human Image Completion},
+        author={Tsai, Yu-Ju and Price, Brian and Liu, Qing and Figueroa, Luis and Pakhomov, Daniil and Ding, Zhihong and Cohen, Scott and Yang, Ming-Hsuan},
+        booktitle={ICCV},
+        year={2025}
+      }</code></pre>
+    </div>
+  </section> -->
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <a class="icon-link" href="https://liagm.github.io/" class="external-link" disabled target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content">
+            <p>
+              This webpage template is adapted from <a href="https://github.com/nerfies/nerfies.github.io"
+                target="_blank">Nerfies</a>,
+              under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA
+                4.0 License</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="static/js/script.js"></script>
+
+  <script>
+    new BeforeAfter({
+      id: '#bear-inst0-color'
+    });
+    new BeforeAfter({
+      id: '#bear-inst0-depth'
+    });
+    new BeforeAfter({
+      id: '#bird-inst1-color'
+    });
+    new BeforeAfter({
+      id: '#bird-inst1-depth'
+    });
+    // new BeforeAfter({
+    //   id: '#cat-pikachu-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#cat-pikachu-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#cow-inst0-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#cow-inst0-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#dog-inst0-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#dog-inst0-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#elephant-inst0-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#elephant-inst0-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#parrot-yum-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#parrot-yum-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#polarbear-inst0-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#polarbear-inst0-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#rabbit-ninja-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#rabbit-ninja-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#turtle-inst0-color'
+    // });
+    // new BeforeAfter({
+    //   id: '#turtle-inst0-depth'
+    // });
+    // new BeforeAfter({
+    //   id: '#bear-inst0-00206'
+    // });
+    // new BeforeAfter({
+    //   id: '#parrot-yum-00000'
+    // });
+    // new BeforeAfter({
+    //   id: '#elephant-inst0-00033'
+    // });
+    // new BeforeAfter({
+    //   id: '#rabbit-ninja-00121'
+    // });
+    // new BeforeAfter({
+    //   id: '#cockatiel-inst0-00039'
+    // });
+    // new BeforeAfter({
+    //   id: '#cat-pikachu-00000'
+    // });
+
+  </script>
+
+</body>
+
+</html>

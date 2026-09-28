@@ -75,22 +75,14 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
 
-        /* Nav Button Active State */
-        .nav-btn.active {
-            color: #2563eb; /* blue-600 */
-            border-bottom: 2px solid #2563eb;
-            font-weight: 600;
+        .pub-item.selected-publication {
+            background-color: #fffbeb;
+            border-color: #fde68a;
         }
-        .nav-btn {
-            color: #64748b; /* slate-500 */
-            font-weight: 500;
-            padding-bottom: 4px;
-            border-bottom: 2px solid transparent;
-            transition: all 0.2s;
+        .pub-item.selected-publication:hover {
+            border-color: #fcd34d;
         }
-        .nav-btn:hover {
-            color: #334155; /* slate-700 */
-        }
+
     </style>
 </head>
 <body class="antialiased text-slate-800 bg-gray-50 min-h-screen flex flex-col">
@@ -134,12 +126,6 @@
             </div>
         </header>
 
-        <!-- NAVIGATION TABS -->
-        <nav class="flex gap-8 mb-8 border-b border-gray-100">
-            <button onclick="switchTab('home')" id="tab-home" class="nav-btn active pb-2 px-1">Home</button>
-            <button onclick="switchTab('publications')" id="tab-publications" class="nav-btn pb-2 px-1">Full Publications</button>
-        </nav>
-
         <!-- PAGE: HOME -->
         <div id="page-home" class="fade-in block">
             
@@ -175,7 +161,7 @@
                     <ul class="space-y-3">
                         <li class="flex gap-3 items-baseline text-slate-700">
                             <span class="font-mono text-sm font-bold text-slate-500 whitespace-nowrap">[2026/09]</span>
-                            <span><a href="https://alaya-lab.github.io/KaiNinja/" target="_blank" class="text-blue-600 hover:underline">KaiNinja</a> is released! Check full publication list!</span>
+                            <span><a href="https://alaya-lab.github.io/KaiNinja/" target="_blank" class="text-blue-600 hover:underline">KaiNinja</a> is released! Check our website for more details!</span>
                         </li>
                         <li class="flex gap-3 items-baseline text-slate-700">
                             <span class="font-mono text-sm font-bold text-slate-500 whitespace-nowrap">[2026/07]</span>
@@ -212,8 +198,8 @@
                     </ul>
                 </section>
 
-                <!-- SELECTED PUBLICATIONS -->
-                <section>
+                <!-- Publications are moved here from the former separate tab. -->
+                <section id="publications-anchor" class="hidden">
                     <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-gray-200 mb-4 pb-2 gap-2">
                         <h3 class="text-2xl font-bold text-slate-800">Selected Publications</h3>
                         <button onclick="switchTab('publications')" class="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors text-left md:text-right">
@@ -360,14 +346,18 @@
             </div>
         </div>
 
-        <!-- PAGE: FULL PUBLICATIONS (UPDATED) -->
-        <div id="page-publications" class="hidden fade-in">
+        <!-- FULL PUBLICATIONS -->
+        <section id="page-publications" class="fade-in">
             <div class="flex justify-between items-baseline mb-6 border-b border-gray-200 pb-4">
-                <h3 class="text-3xl font-bold text-slate-900">Full Publication List</h3>
+                <h3 class="text-3xl font-bold text-slate-900">Publications</h3>
                 <a href="https://scholar.google.com.tw/citations?user=-mtZTxEAAAAJ" target="_blank" class="text-blue-600 hover:underline text-sm">
                     <i class="fas fa-external-link-alt mr-1"></i> Google Scholar
                 </a>
             </div>
+            <p class="flex items-center gap-2 text-sm text-slate-500 mb-6 italic">
+                <span class="inline-block w-4 h-4 rounded border border-amber-200 bg-amber-50" aria-hidden="true"></span>
+                Highlighted entries are selected publications. * Indicates Co-First Author.
+            </p>
             
             <div class="space-y-10">
                 <!-- 2026 -->
@@ -625,7 +615,7 @@
                 </div>
 
             </div>
-        </div>
+        </section>
 
     </main>
 
@@ -653,22 +643,25 @@
         };
         document.getElementById('last-updated').textContent = now.toLocaleString('en-US', options);
 
-        // Tab Switching Logic
-        function switchTab(tabName) {
-            // Hide all pages
-            document.getElementById('page-home').classList.add('hidden');
-            document.getElementById('page-publications').classList.add('hidden');
-            
-            // Remove active class from all nav buttons
-            document.getElementById('tab-home').classList.remove('active');
-            document.getElementById('tab-publications').classList.remove('active');
-            
-            // Show selected page
-            document.getElementById('page-' + tabName).classList.remove('hidden');
-            
-            // Add active class to selected button
-            document.getElementById('tab-' + tabName).classList.add('active');
-        }
+        // Merge the former publications tab into the home page.
+        const publicationsSection = document.getElementById('page-publications');
+        const publicationsAnchor = document.getElementById('publications-anchor');
+        publicationsAnchor.replaceWith(publicationsSection);
+
+        // Preserve the former selected-publication emphasis in the full list.
+        const selectedPublicationTitlePrefixes = [
+            'AlbumFill: Album-Guided Reasoning and Retrieval for Personalized Image Completion',
+            'CompleteMe: Reference-based Human Image Completion',
+            'No More Ambiguity',
+            'Dual Associated Encoder for Face Restoration',
+            'Attention-based View Selection Networks for Light-field Disparity Estimation'
+        ];
+        publicationsSection.querySelectorAll('.pub-item').forEach((item) => {
+            const title = item.querySelector('h4')?.textContent.trim();
+            if (title && selectedPublicationTitlePrefixes.some((prefix) => title.startsWith(prefix))) {
+                item.classList.add('selected-publication');
+            }
+        });
 
         // Fade in on load
         window.onload = () => {

@@ -160,6 +160,10 @@
                     <h3 class="text-2xl font-bold text-slate-800 mb-4 pb-2 border-b border-gray-200">News</h3>
                     <ul class="space-y-3">
                         <li class="flex gap-3 items-baseline text-slate-700">
+                            <span class="font-mono text-sm font-bold text-slate-500 whitespace-nowrap">[2026/10]</span>
+                            <span><a href="https://alaya-lab.github.io/PROWBench/" target="_blank" class="text-blue-600 hover:underline">PROWBench</a> is released! Check our website for more details!</span>
+                        </li>
+                        <li class="flex gap-3 items-baseline text-slate-700">
                             <span class="font-mono text-sm font-bold text-slate-500 whitespace-nowrap">[2026/09]</span>
                             <span><a href="https://alaya-lab.github.io/KaiNinja/" target="_blank" class="text-blue-600 hover:underline">KaiNinja</a> is released! Check our website for more details!</span>
                         </li>
@@ -364,6 +368,23 @@
                 <div>
                     <h4 class="text-2xl font-bold text-slate-400 mb-6 border-b border-gray-100 pb-2">2026</h4>
                     <div class="space-y-6">
+                        <div class="pub-item p-5 border border-gray-100 rounded-lg bg-white hover:border-blue-100 flex flex-col md:flex-row gap-6">
+                            <div class="w-full md:w-48 flex-shrink-0">
+                                <img src="image/prowbench_teaser.jpg" alt="PROWBench Preview" class="w-full h-auto rounded border border-gray-200 shadow-sm object-cover">
+                            </div>
+                            <div class="flex-grow">
+                                <h4 class="font-bold text-lg text-slate-900 mb-2 leading-tight">PROWBench: Do Video Models Render What the Program Specifies?</h4>
+                                <p class="text-slate-600 mb-2 text-sm">
+                                    Zheng-Hui Huang*, Guixu Lin*, <strong>Yu-Ju Tsai</strong>, Jian-Kai Zhu, Fengbo Lan, Yu-Lun Liu, Yung-Yu Chuang, Kaipeng Zhang, Zhixiang Wang
+                                </p>
+                                <p class="text-blue-700 font-medium text-sm mb-3 italic">arXiv 2026</p>
+                                <div class="flex gap-2">
+                                    <a href="https://arxiv.org/abs/2610.02205" target="_blank" class="text-xs px-2 py-1 border border-slate-300 rounded text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition">Paper</a>
+                                    <a href="https://alaya-lab.github.io/PROWBench/" target="_blank" class="text-xs px-2 py-1 border border-slate-300 rounded text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition">Project Page</a>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="pub-item p-5 border border-gray-100 rounded-lg bg-white hover:border-blue-100 flex flex-col md:flex-row gap-6">
                             <div class="w-full md:w-48 flex-shrink-0">
                                 <img src="image/kaininja_teaser.png" alt="KaiNinja Preview" class="w-full h-auto rounded border border-gray-200 shadow-sm object-cover">
@@ -650,6 +671,7 @@
 
         // Preserve the former selected-publication emphasis in the full list.
         const selectedPublicationTitlePrefixes = [
+            'PROWBench: Do Video Models Render What the Program Specifies?',
             'AlbumFill: Album-Guided Reasoning and Retrieval for Personalized Image Completion',
             'CompleteMe: Reference-based Human Image Completion',
             'No More Ambiguity',
